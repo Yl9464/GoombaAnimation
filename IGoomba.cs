@@ -6,6 +6,7 @@ namespace MakeGrid.Interfaces
     {
         void GoombaMove(int makeRows, int makeCols);
         void GoombaDraw(char[,] grid);
+
     }
 
 }
