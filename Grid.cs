@@ -14,6 +14,24 @@ public class Grid
     {
         grid = new char[Rows, Cols];
     }
+    public void DrawGrid()
+    {
+        int rows = 10;
+        int cols = 10;
+
+        for (int r = 0; r < rows; r++)
+        {
+            for (int c = 0; c < cols; c++)
+            {
+                if (r == 0 || r == rows - 1 || c == 0 || c == cols - 1)
+                    Console.Write("* ");
+                else
+                    Console.Write("  ");
+            }
+
+            Console.WriteLine();
+        }
+    }
     public void ClearGrid()
     {
         for (int r = 0; r < Rows; r++) //loop thorugh every row and place * on left and right side 
