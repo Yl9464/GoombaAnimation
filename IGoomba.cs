@@ -1,12 +1,12 @@
-namespace MakeGrid.Interfaces
+namespace IGoomba
 {
-    //goomba impements movement and drawing
-
-    public interface IGoomba
+    public interface GoombaInterface
     {
-        void GoombaMove(int makeRows, int makeCols);
-        void GoombaDraw(char[,] grid);
 
+        // void GoombaMove(int makeRows, int makeCols);
+        void DrawGoomba();
     }
+
+
 
 }

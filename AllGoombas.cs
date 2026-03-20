@@ -1,9 +1,11 @@
-using DrawFigure;
+using IGoomba;
+namespace DrawGoombas;
 
-public class DrawGoombaFig : IDrawFig
+public class DrawGoombaFig : GoombaInterface
 {
+
     private string[] goombaSprite;
-    private int horizPos = 0; //horizontal movement
+    private int posX = 0; //horizontal movement
 
     public DrawGoombaFig()
     {
@@ -55,14 +57,22 @@ public class DrawGoombaFig : IDrawFig
 
     }
 
-    public void DrawFig()
+
+    public void DrawGoomba()
     {
         Console.Clear();
-
-        for (int i = 0; i < goombaSprite.Length; i++)
+         
+         Console.Clear();
+        foreach (string line in goombaSprite)
         {
-            Console.WriteLine(new string(' ', horizPos) + goombaSprite[i]);
+            Console.WriteLine(new string(' ', posX) + line); //Replace @ with ' ' at index 0
+
         }
 
     }
+      public void Draw()
+    {
+        DrawGoomba();
+    }
+
 }

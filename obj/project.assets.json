@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/yinglu/Desktop/GoombaMidtermPract/GoombaMidtermPract.csproj",
+      "projectUniqueName": "/Users/yinglu/Desktop/Org.Prog.Lang/GoombaMidtermPract/GoombaMidtermPract.csproj",
       "projectName": "GoombaMidtermPract",
-      "projectPath": "/Users/yinglu/Desktop/GoombaMidtermPract/GoombaMidtermPract.csproj",
+      "projectPath": "/Users/yinglu/Desktop/Org.Prog.Lang/GoombaMidtermPract/GoombaMidtermPract.csproj",
       "packagesPath": "/Users/yinglu/.nuget/packages/",
-      "outputPath": "/Users/yinglu/Desktop/GoombaMidtermPract/obj/",
+      "outputPath": "/Users/yinglu/Desktop/Org.Prog.Lang/GoombaMidtermPract/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/yinglu/.nuget/NuGet/NuGet.Config"

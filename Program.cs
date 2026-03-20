@@ -1,6 +1,6 @@
 using MakeGrid;
-using MakeGrid.Game;
-using DrawFigure;
+using DrawGoombas;
+
 
 class Program
 {
@@ -8,12 +8,12 @@ class Program
     {
         //GameController game = new GameController();
         //game.Run();
-        
+
         //Grid grid = new Grid();
         //grid.DrawGrid();
 
         DrawGoombaFig g = new DrawGoombaFig();
-        g.DrawFig();
+        g.DrawGoomba();
 
     }
 }
