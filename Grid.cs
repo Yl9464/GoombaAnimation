@@ -1,65 +1,36 @@
 namespace MakeGrid;
 
 public class Grid
-
 {
-    public int Rows = 11;
-    public int Cols = 11;
-    public char[,] grid; //2-D array of characters
-    // (row, column)
-    // (0,0) (0,1) (0,2) (0,3)
-    // (1,0) (1,1) (1,2) (1,3)
-    // (2,0) (2,1) (2,2) (2,3)
+
+    // 1. Declare and initialize a 10x10 integer grid
+    int[,] grid;
     public Grid()
     {
-        grid = new char[Rows, Cols];
+        grid = new int[10, 10];
     }
-    public void DrawGrid()
-    {
-        int rows = 10;
-        int cols = 10;
-
-        for (int r = 0; r < rows; r++)
+    public void DrawGrid() {
+        // 2. Populate the grid (e.g., assign values based on their position)
+        for (int row = 0; row < 10; row++)
         {
-            for (int c = 0; c < cols; c++)
+            for (int col = 0; col < 10; col++)
             {
-                if (r == 0 || r == rows - 1 || c == 0 || c == cols - 1)
-                    Console.Write("* ");
-                else
-                    Console.Write("  ");
+                // Assign a value to each cell (e.g., a simple value for demonstration)
+                // Here, we can use the row number, column number, or something else.
+                grid[row, col] = row * 10 + col;
             }
+        }
 
+        // 3. Traverse and print the grid to the console
+        for (int row = 0; row < 10; row++)
+        {
+            for (int col = 0; col < 10; col++)
+            {
+                // Print the value in each cell, formatted for alignment
+                Console.Write($"{grid[row, col],-4}");
+            }
+            // Move to the next line after each row
             Console.WriteLine();
-        }
-    }
-    public void ClearGrid()
-    {
-        for (int r = 0; r < Rows; r++) //loop thorugh every row and place * on left and right side 
-            for (int c = 0; c < Cols; c++)
-                grid[r, c] = ' ';
-    }
-    public void DrawBorder()
-    {
-        //drawing left and right borders
-        for (int c = 0; c < Cols; c++)
-        {
-            grid[0, c] = '*'; //put * in row & r column 0
-            grid[Rows - 1, c] = '*'; //acess the last column
-        }
-        for (int r = 0; r < Rows; r++)
-        {
-            grid[r, 0] = '*';
-            grid[r, Cols - 1] = '*';
-        }
-    }
-    public void Print()
-    {
-        for (int r = 0; r < Rows; r++)
-        {
-            for (int c = 0; c < Cols; c++)
-                Console.Write(grid[r, c]);
-            Console.WriteLine();
-
         }
     }
 }

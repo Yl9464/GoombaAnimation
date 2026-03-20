@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GoombaMidtermPract")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6584523b102abc5928303ff136a58e42ab769c5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4550cdb28ba986a81333fa48493107ccd433c1d6")]
 [assembly: System.Reflection.AssemblyProductAttribute("GoombaMidtermPract")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GoombaMidtermPract")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

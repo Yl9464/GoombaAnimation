@@ -6,7 +6,7 @@ public class DrawGoombaFig : GoombaInterface
 
     private string[] goombaSprite;
     private int posX = 0; //horizontal movement
-
+    private int posY = 0;
     public DrawGoombaFig()
     {
         goombaSprite = new string[10];
@@ -57,12 +57,9 @@ public class DrawGoombaFig : GoombaInterface
 
     }
 
-
     public void DrawGoomba()
     {
         Console.Clear();
-         
-         Console.Clear();
         foreach (string line in goombaSprite)
         {
             Console.WriteLine(new string(' ', posX) + line); //Replace @ with ' ' at index 0
@@ -70,9 +67,46 @@ public class DrawGoombaFig : GoombaInterface
         }
 
     }
-      public void Draw()
-    {
-        DrawGoomba();
-    }
 
+    public void MoveRight(int steps, int delayMS = 150)
+    {
+        for (int i = 0; i < steps; i++)
+        {
+            posX++;
+            if (i % 2 == 0)
+            {
+                GoombaLeft();
+            }
+            else //i is odd
+            {
+                GoombaRight();
+            }
+            //PrintGoomba();
+            DrawGoomba();
+            Thread.Sleep(delayMS);
+
+        }
+
+    }
+public void MoveLeft(int steps, int delayMs = 150)
+    {
+        for (int i = 0; i < steps; i++)
+        {
+            if (posX > 0) posX--; //decrement, rmv spaces 
+
+            if (i % 2 == 0) GoombaLeft();
+
+            else GoombaRight();
+
+            DrawGoomba();
+            Thread.Sleep(delayMs);
+
+        }
+    }
+public void MoveDown(int steps, int delayMs = 150)
+    {
+         for (int i = 0; i < steps; i++)
+        {
+          Console.WriteLine('\n');
+     } }
 }
