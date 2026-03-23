@@ -4,11 +4,11 @@ public class Grid
 {
     // 1. Declare and initialize a 10x10 integer grid
     //int[,] grid;
-    char[,] starGrid;
+    string[,] starGrid;
 
     public Grid()
     {
-        starGrid = new char[10, 10];
+        starGrid = new string[10, 10];
     }
     public void DrawGrid()
     {
@@ -19,31 +19,30 @@ public class Grid
             for (int col = 0; col < 10; col++)
             {
                 // Assign a value to each cell
-                starGrid[row, col] = '*';
+                starGrid[row, col] = "*   ";
             }
         }
 
 
         // 3. Traverse and print the grid to the console
-        for (int row = 0; row < 10; row++)
-        {
-            for (int col = 0; col < 10; col++)
-            {
-                Console.Write($"{starGrid[row,col]:D2} ");
-            }
-            Console.WriteLine();
-        }
+        // for (int row = 0; row < 10; row++)
+        // {
+        //     for (int col = 0; col < 10; col++)
+        //     {
+        //         Console.Write($"{starGrid[row,col]:D2} ");
+        //     }
+        //     Console.WriteLine();
+        // }
         //border
-        char[] topEdge = Enumerable.Range(0, starGrid.GetLength(1))
+        string[] topEdge = Enumerable.Range(0, starGrid.GetLength(1))
                            .Select(colIndex => starGrid[0, colIndex])
                            .ToArray();
-        char[] TopBorder;
+       
+         for (int i = 0; i < topEdge.Length; i++)
+         {
+             Console.Write(topEdge[i]);
 
-        // for (int i = 0; i <= topEdge.Length; i++)
-        // {
-        //     TopBorder[i] = '*';
-
-        // }
+         };
       
 
     }
