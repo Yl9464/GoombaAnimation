@@ -1,52 +1,67 @@
-public void MoveRight(int steps, int delayMs = 150)
+
+add goomba
+  if (row == playerRow && col == playerCol)
+                {
+                    Console.Write("P "); // player
+                }
+                else if (row == 0 || row == 9 || col == 0 || col == 9)
+                {
+                    Console.Write("* "); // border
+                }
+                else
+                {   Console.Write("  ");
+                }
+ //////////////////                   
+namespace MakeGrid;
+
+public class Grid
+{
+    // 1. Declare and initialize a 10x10 integer grid
+    //int[,] grid;
+    string[,] starGrid;
+    int goombaMoveX = 0;
+    int goombaMoveY= 0;
+    public Grid()
     {
-
-        for (int i = 0; i < steps; i++)
+        starGrid = new string[10, 10];
+    }
+    public void DrawGrid()
+    {
+        for (int row = 0; row < 10; row++)
         {
-            horizPos++;
-            if (i % 2 == 0) //i is even 
+            for (int col = 0; col < 10; col++)
             {
-                GoombaLeft();
-
+                // Check if it's a border cell
+                if (row == 0 || row == 9 || col == 0 || col == 9)
+                {
+                    Console.Write("* ");
+                }
+                else
+                {
+                    Console.Write("  "); // empty inside
+                }
             }
-            else //i is odd
-            {
-                GoombaRight();
-            }
-            //PrintGoomba();
-            DrawImage();
-            Thread.Sleep(delayMs);
-
+            Console.WriteLine(); // move to next row
         }
     }
-    public void MoveLeft(int steps, int delayMs = 150)
-    {
-        for (int i = 0; i < steps; i++)
-        {
-            if (horizPos > 0) horizPos--; //decrement, rmv spaces 
-
-            if (i % 2 == 0) GoombaLeft();
-
-            else GoombaRight();
-
-            //PrintGoomba();
-            DrawImage();
-            Thread.Sleep(delayMs);
-
-        }
-    }
-    public void Stand()
-    {
-        GoombaFlat();
-        //PrintGoomba();
-        DrawImage();
-    }
 
 
-    public void Main()
-    {
-        //DrawImage();
-        MoveRight(15);
-        MoveLeft(15);
-        Stand();
-    }
+// public void MoveAlongBorder()
+// {
+//     // Top row → move right
+//     if (playerRow == 0 && playerCol < 9)
+//         playerCol++;
+
+//     // Right column → move down
+//     else if (playerCol == 9 && playerRow < 9)
+//         playerRow++;
+
+//     // Bottom row → move left
+//     else if (playerRow == 9 && playerCol > 0)
+//         playerCol--;
+
+//     // Left column → move up
+//     else if (playerCol == 0 && playerRow > 0)
+//         playerRow--;
+// }
+}
