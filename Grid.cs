@@ -9,7 +9,7 @@ public class Grid
     string[,] starGrid;
     int goombaMoveX = 0;
     int goombaMoveY = 0;
-   // bool start = true;
+    bool start = true;
     public Grid()
     {
         g = new DrawGoombaFig();
@@ -42,7 +42,12 @@ public class Grid
             }
             MoveAlongBorder();
 
-         Thread.Sleep(200);   
+        // ✅ Stop when back at start (but not immediately)
+        // if (!start && playerRow == startRow && playerCol == startCol)
+        //     break;
+
+        // firstMove = false;
+            Thread.Sleep(200);
         }
     }
 
@@ -65,5 +70,6 @@ public class Grid
         // Left column → move up
         else if (goombaMoveY == 0 && goombaMoveX > 0)
             goombaMoveX--;
+        
     }
 }

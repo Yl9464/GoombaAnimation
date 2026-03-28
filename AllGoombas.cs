@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using IGoomba;
 namespace DrawGoombas;
 
@@ -6,7 +7,7 @@ public class DrawGoombaFig : GoombaInterface
 
     private string[] goombaSprite;
     private int posX = 0; //horizontal movement
-    private int posY = 0;
+
     public DrawGoombaFig()
     {
         goombaSprite = new string[10];
@@ -22,7 +23,6 @@ public class DrawGoombaFig : GoombaInterface
         goombaSprite[8] = @"/____\  ====  /____\ ";
         goombaSprite[9] = @"                      ";
     }
-
 
     public void GoombaLeft()
     {
@@ -57,56 +57,60 @@ public class DrawGoombaFig : GoombaInterface
 
     }
 
-    public void DrawGoomba()
+    public void DrawGoomba(int trailLength)
     {
         Console.Clear();
-        foreach (string line in goombaSprite)
-        {
-            Console.WriteLine(new string(' ', posX) + line); //Replace @ with ' ' at index 0
 
+        for (int j = 0; j < trailLength; j++)
+        {
+            Console.Write(" * ");
         }
+        Console.WriteLine(); // move to next line
 
-    }
-
-    public void MoveRight(int steps, int delayMS = 150)
-    {
-        for (int i = 0; i < steps; i++)
+        // Draw Goomba below
+        for (int i = 0; i < goombaSprite.Length; i++)
         {
-            posX++;
-            if (i % 2 == 0)
-            {
+            Console.WriteLine(new string(' ', posX) + goombaSprite[i]);
+        }
+    }
+    public void MoveGoomba(int steps, int delayMS = 200)
+    {
+        for (int x = 0; x < steps; x++)
+        {
+            posX = x * 3;
+
+            if (x % 2 == 0)
                 GoombaLeft();
-            }
-            else //i is odd
-            {
+            else
                 GoombaRight();
-            }
-            //PrintGoomba();
-            DrawGoomba();
+
+            DrawGoomba(x); // trail grows on top
+
             Thread.Sleep(delayMS);
-
-        }
-
-    }
-public void MoveLeft(int steps, int delayMs = 150)
-    {
-        for (int i = 0; i < steps; i++)
-        {
-            if (posX > 0) posX--; //decrement, rmv spaces 
-
-            if (i % 2 == 0) GoombaLeft();
-
-            else GoombaRight();
-
-            DrawGoomba();
-            Thread.Sleep(delayMs);
-
         }
     }
-public void MoveDown(int steps, int delayMs = 150)
-    {
-         for (int i = 0; i < steps; i++)
-        {
-          Console.WriteLine('\n');
-     } }
+
+    // public void MoveLeft(int steps, int delayMs = 150)
+    // {
+
+    //     for (int i = 0; i < steps; i++)
+    //     {
+    //         if (posX > 0) posX--; //decrement, rmv spaces 
+
+    //         if (i % 2 == 0) GoombaLeft();
+
+    //         else GoombaRight();
+
+    //     }
+    //     DrawGoomba();
+    //     Thread.Sleep(delayMs);
+
+    // }
+    // public void MoveDown(int steps, int delayMs = 150)
+    // {
+    //     for (int i = 0; i < steps; i++)
+    //     {
+    //         Console.WriteLine('*');
+    //     }
+    // }
 }

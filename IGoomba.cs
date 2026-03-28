@@ -4,7 +4,7 @@ namespace IGoomba
     {
 
         // void GoombaMove(int makeRows, int makeCols);
-        void DrawGoomba();
+        void DrawGoomba(int trailLength);
     }
 
 
