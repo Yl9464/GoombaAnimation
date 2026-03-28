@@ -6,8 +6,8 @@ public class DrawGoombaFig : GoombaInterface
 {
 
     private string[] goombaSprite;
-    private int posX = 0; //horizontal movement
-
+    private int posX = 0; //horizontal 
+    private int posY = 0; //Vertical
     public DrawGoombaFig()
     {
         goombaSprite = new string[10];
@@ -73,7 +73,25 @@ public class DrawGoombaFig : GoombaInterface
             Console.WriteLine(new string(' ', posX) + goombaSprite[i]);
         }
     }
-    public void MoveGoomba(int steps, int delayMS = 200)
+
+    public void DrawGoombaDown()
+    {
+       // Console.Clear();
+        // Draw trail ABOVE Goomba
+        for (int j = 0; j < posY; j++)
+        {
+            Console.SetCursorPosition(posX, j);
+            Console.Write("*");
+        }
+
+        // Draw Goomba at current position
+        for (int i = 0; i < goombaSprite.Length; i++)
+        {
+            Console.SetCursorPosition(posX, posY + i);
+            Console.Write(goombaSprite[i]);
+        }
+    }
+    public void MoveGoombaRight(int steps, int delayMS = 200)
     {
         for (int x = 0; x < steps; x++)
         {
@@ -90,27 +108,26 @@ public class DrawGoombaFig : GoombaInterface
         }
     }
 
-    // public void MoveLeft(int steps, int delayMs = 150)
-    // {
+    public void MoveGoombaDown(int steps, int delayMS = 200)
+    {
+        posY = 0;
 
-    //     for (int i = 0; i < steps; i++)
-    //     {
-    //         if (posX > 0) posX--; //decrement, rmv spaces 
+        for (int y = 0; y < steps; y++)
+        {
+            if (posY + goombaSprite.Length >= Console.WindowHeight)
+                break; // stop at bottom
 
-    //         if (i % 2 == 0) GoombaLeft();
+            posY++;
 
-    //         else GoombaRight();
+            if (y % 2 == 0)
+                GoombaLeft();
+            else
+                GoombaRight();
 
-    //     }
-    //     DrawGoomba();
-    //     Thread.Sleep(delayMs);
+            DrawGoombaDown();
 
-    // }
-    // public void MoveDown(int steps, int delayMs = 150)
-    // {
-    //     for (int i = 0; i < steps; i++)
-    //     {
-    //         Console.WriteLine('*');
-    //     }
-    // }
+            Thread.Sleep(delayMS);
+        }
+    }
+
 }

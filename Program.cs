@@ -8,8 +8,8 @@ class Program
     {
     
         DrawGoombaFig g = new DrawGoombaFig();
-        g.MoveGoomba(10);
-     
+     g.MoveGoombaRight(10);
+       g.MoveGoombaDown(10);
 
 
     }
